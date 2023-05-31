@@ -1,0 +1,32 @@
+
+The R script
+ makeWaveClimatology.R
+computes monthly climatologies for variables specified as
+ varList
+from the product specified as
+ ARCmyWAV
+
+Requirement:
+ R library RNetCDF (available from https://cran.r-project.org/web/packages/RNetCDF/)
+
+Prior to excecuting the script, three environment variables must be set and exported:
+ inPath   (top) directory for existing daily files with results
+ outPath  directory to which output files will be written
+ Rpath    directory where the  makeWaveClimatology.R  script is available
+Note that in the present configuration, input files cover one day each,
+and are available as
+ ${inPath}/[YYYY]/[MM]/[YYYYMMDD]_MyWam3km_hindcast-cmems.nc
+
+
+How to run (linux):
+
+inPath=<your implementation>
+outPath=<your implementation>
+Rpath=<path to this directory>
+export inPath outPath Rpath
+
+Rbin=`which R`
+R_LIBS=<path to directory from which the R library RNetCDF is available>
+export R_LIBS
+
+${Rbin} CMD BATCH makeWaveClimatology.R
