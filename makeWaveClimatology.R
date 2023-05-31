@@ -175,6 +175,9 @@ for (month in monthList) {
                 sysDate <- system("date --rfc-3339=s", intern=TRUE)
                 history <- paste(sysDate,"Created by R script makeWaveClimatology.R", sep=":")
                 att.put.nc(outID,"NC_GLOBAL","history","NC_CHAR",history)
+                att.put.nc(outID,"NC_GLOBAL","GitHub_doi","NC_CHAR",
+                                 "10.5281/zenodo.7991137")
+
 
                 # Reset flag:
                 fileCreated <- TRUE
